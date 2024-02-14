@@ -1,0 +1,44 @@
+{
+  "KPI Overview": {
+    "Total NET_SALES_AMOUNT": "17647785.76",
+    "Total NET_SALES_AMOUNT Change": "30.05%",
+    "Average QUANTITY": "8.73",
+    "Average QUANTITY Change": "53.39%"
+  },
+  "Waterfall Data": {
+    "Total NET_SALES_AMOUNT": {
+      "price_Bucket_new": {
+        "Total NET_SALES_AMOUNT in 2021": 7671128.98,
+        "High": 630527.0,
+        "Low": 1098796.7199999997,
+        "Medium": 576204.0799999996,
+        "Total NET_SALES_AMOUNT in 2022": -9976656.78
+      }
+    },
+    "Total QUANTITY": {
+      "price_Bucket_new": {
+        "Total QUANTITY in 2021": 16131.0,
+        "High": 507.0,
+        "Low": 6781.0,
+        "Medium": 1324.0,
+        "Total QUANTITY in 2022": -24743.0
+      }
+    }
+  },
+  "Pie Chart Data": {
+    "Total NET_SALES_AMOUNT": {
+      "price_Bucket_new": {
+        "High": 7929850.23,
+        "Low": 5079555.71,
+        "Medium": 7421862.15
+      }
+    },
+    "Total QUANTITY": {
+      "price_Bucket_new": {
+        "High": 3975.0,
+        "Low": 29617.0,
+        "Medium": 13515.0
+      }
+    }
+  }
+}

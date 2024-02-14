@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing & Promotion</title>
+    <style>
+        
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+h1 {
+    color: #007BFF;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.filter-section, .kpi-section {
+    margin-bottom: 20px;
+}
+
+.filter-label, .kpi-label {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+}
+
+.filter-checkbox, .kpi-checkbox {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.filter-checkbox:hover, .kpi-checkbox:hover {
+    background-color: #f2f2f2;
+}
+
+.filter-checkbox input[type="checkbox"], .kpi-checkbox input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.calculation-dropdown {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #333;
+    background-color: #f8f9fa;
+    margin-left: 10px;
+    width: 110px;
+}
+
+#start-year, #end-year {
+    width: 70px;
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#apply-filters-btn {
+    padding: 12px 24px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#apply-filters-btn:hover {
+    background-color: #0056b3;
+}
+
+#json-data {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    overflow-x: auto;
+    border: 1px solid #ccc;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>KPI Overview</h1>
+    <div id="results">
+        <div class="filter-section" id="filters-section">
+            <div class="filter-label">Select Department:</div>
+            <label class="filter-checkbox"><input type="checkbox" name="DEPARTMENT_DESCRIPTION" value="Close Out"> Close Out </label>
+            <label class="filter-checkbox"><input type="checkbox" name="DEPARTMENT_DESCRIPTION" value="Fashion Jewelry"> Fashion Jewelry </label>
+            <label class="filter-checkbox"><input type="checkbox" name="DEPARTMENT_DESCRIPTION" value="Fashion Diamonds"> Fashion Diamonds </label>
+            <label class="filter-checkbox"><input type="checkbox" name="DEPARTMENT_DESCRIPTION" value="Single Stone Jewelry"> Single Stone Jewelry </label>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-label">Select Sub-Department:</div>
+            <label class="filter-checkbox"><input type="checkbox" name="SUB_DEPARTMENT_DESCRIPTION" value="xxx"> xxx </label>
+            <label class="filter-checkbox"><input type="checkbox" name="SUB_DEPARTMENT_DESCRIPTION" value="Gold Jewelry"> Gold Jewelry </label>
+            <label class="filter-checkbox"><input type="checkbox" name="SUB_DEPARTMENT_DESCRIPTION" value="CO Mfg Sample Sale"> CO Mfg Sample Sale </label>
+            <label class="filter-checkbox"><input type="checkbox" name="SUB_DEPARTMENT_DESCRIPTION" value="CO Fashion Diamonds"> CO Fashion Diamonds </label>
+            <label class="filter-checkbox"><input type="checkbox" name="SUB_DEPARTMENT_DESCRIPTION" value="Color"> Color </label>
+            <label class="filter-checkbox"><input type="checkbox" name="SUB_DEPARTMENT_DESCRIPTION" value="CO Fashion Jewelry"> CO Fashion Jewelry </label>
+            <label class="filter-checkbox"><input type="checkbox" name="SUB_DEPARTMENT_DESCRIPTION" value="Single Stone Jewelry"> Single Stone Jewelry </label>
+            <label class="filter-checkbox"><input type="checkbox" name="SUB_DEPARTMENT_DESCRIPTION" value="CO Single Stone Jewelry"> CO Single Stone Jewelry </label>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-label">Select Class:</div>
+            <label class="filter-checkbox"><input type="checkbox" name="CLASS_DESCRIPTION" value="xxx"> xxx </label>
+            <label class="filter-checkbox"><input type="checkbox" name="CLASS_DESCRIPTION" value="CO Fashion Diamonds"> CO Fashion Diamonds </label>
+            <label class="filter-checkbox"><input type="checkbox" name="CLASS_DESCRIPTION" value="Womens Gold"> Womens Gold </label>
+            <label class="filter-checkbox"><input type="checkbox" name="CLASS_DESCRIPTION" value="Moissanite"> Moissanite </label>
+            <label class="filter-checkbox"><input type="checkbox" name="CLASS_DESCRIPTION" value="CO Metals"> CO Metals </label>
+            <label class="filter-checkbox"><input type="checkbox" name="CLASS_DESCRIPTION" value="CO MSS Fashion Diamonds"> CO MSS Fashion Diamonds </label>
+            <label class="filter-checkbox"><input type="checkbox" name="CLASS_DESCRIPTION" value="CO Single Stone Jewelry"> CO Single Stone Jewelry </label>
+            <label class="filter-checkbox"><input type="checkbox" name="CLASS_DESCRIPTION" value="CO MSS Fashion Jewelry"> CO MSS Fashion Jewelry </label>
+            <label class="filter-checkbox"><input type="checkbox" name="CLASS_DESCRIPTION" value="Necklaces"> Necklaces </label>
+            <label class="filter-checkbox"><input type="checkbox" name="CLASS_DESCRIPTION" value="Earrings"> Earrings </label>
+            <label class="filter-checkbox"><input type="checkbox" name="CLASS_DESCRIPTION" value="Mens Gold"> Mens Gold </label>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-label">Select Sub-Class:</div>
+            <label class="filter-checkbox"><input type="checkbox" name="SUB_CLASS_DESCRIPTION" value="xxx"> xxx </label>
+            <label class="filter-checkbox"><input type="checkbox" name="SUB_CLASS_DESCRIPTION" value="CO Gold Jewelry"> CO Gold Jewelry </label>
+            <label class="filter-checkbox"><input type="checkbox" name="SUB_CLASS_DESCRIPTION" value="CO Solitaire Pendants"> CO Solitaire Pendants </label>
+            <label class="filter-checkbox"><input type="checkbox" name="SUB_CLASS_DESCRIPTION" value="CO Solitaire Earrings"> CO Solitaire Earrings </label>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-label">Select Lab Indicator:</div>
+            <label class="filter-checkbox"><input type="checkbox" name="lab_indicator" value="xxx"> xxx </label>
+            <label class="filter-checkbox"><input type="checkbox" name="lab_indicator" value="mined"> Mined </label>
+            <label class="filter-checkbox"><input type="checkbox" name="lab_indicator" value="lab_grown"> Lab Grown </label>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-label">Select Category:</div>
+            <label class="filter-checkbox"><input type="checkbox" name="category" value="Necklace/Pendant"> Necklace/Pendant </label>
+            <label class="filter-checkbox"><input type="checkbox" name="category" value="Earring"> Earring </label>
+            <label class="filter-checkbox"><input type="checkbox" name="category" value="Ring"> Ring </label>
+            <label class="filter-checkbox"><input type="checkbox" name="category" value="Bracelet"> Bracelet </label>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-label">Select Store Concept:</div>
+            <label class="filter-checkbox"><input type="checkbox" name="STORE_CONCEPT_UPDT" value="Store"> Store </label>
+            <label class="filter-checkbox"><input type="checkbox" name="STORE_CONCEPT_UPDT" value="Outlet"> Outlet </label>
+            <label class="filter-checkbox"><input type="checkbox" name="STORE_CONCEPT_UPDT" value="Internet"> Internet </label>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-label">Select Price Bucket:</div>
+            <label class="filter-checkbox"><input type="checkbox" name="price_Bucket_new" value="High"> High </label>
+            <label class="filter-checkbox"><input type="checkbox" name="price_Bucket_new" value="Medium"> Medium </label>
+            <label class="filter-checkbox"><input type="checkbox" name="price_Bucket_new" value="Low"> Low </label>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-label">Select KPIs:</div>
+            <div class="kpi-section">
+                <label class="kpi-checkbox">
+                    <input type="checkbox" name="selected_kpi" value="NET_SALES_AMOUNT"> NET_SALES_AMOUNT
+                    <select class="calculation-dropdown" disabled>
+                        <option value="" selected disabled>Select Type</option>
+                        <option value="Total">Total</option>
+                        <option value="Average">Average</option>
+                    </select>
+                </label>
+
+                <label class="kpi-checkbox">
+                    <input type="checkbox" name="selected_kpi" value="QUANTITY"> QUANTITY
+                    <select class="calculation-dropdown" disabled>
+                        <option value="" selected disabled>Select Type</option>
+                        <option value="Total">Total</option>
+                        <option value="Average">Average</option>
+                    </select>
+                </label>
+
+                <label class="kpi-checkbox">
+                    <input type="checkbox" name="selected_kpi" value="UNIT_COST_AMOUNT"> UNIT_COST_AMOUNT
+                    <select class="calculation-dropdown" disabled>
+                        <option value="" selected disabled>Select Type</option>
+                        <option value="Total">Total</option>
+                        <option value="Average">Average</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+
+        <label class="filter-label">Select Start Year:</label>
+        <input type="number" id="start-year" min="2000" max="2100" step="1" value="2021">
+
+        <label class="filter-label">Select End Year:</label>
+        <input type="number" id="end-year" min="2000" max="2100" step="1" value="2022">
+        <br><br>
+        <button id="apply-filters-btn">Apply Filters</button>
+
+        <div id="json-data"></div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        // Show/hide dropdowns based on checkbox selection
+        $('input[name="selected_kpi"]').on('change', function () {
+            var checkbox = $(this);
+            var dropdown = checkbox.closest('.kpi-checkbox').find('.calculation-dropdown');
+            if (checkbox.prop('checked')) {
+                dropdown.prop('disabled', false);
+            } else {
+                dropdown.prop('disabled', true).val(null);
+            }
+        });
+
+        // Handle apply filters button click
+        $('#apply-filters-btn').on('click', function () {
+            var selected_filters = {};
+            $('.filter-section').each(function () {
+                var filterName = $(this).find('.filter-checkbox input').attr('name');
+                var selectedValues = $(this).find('.filter-checkbox input:checked').map(function () {
+                    return $(this).val();
+                }).get();
+                selected_filters[filterName] = selectedValues;
+
+            });
+
+            var selected_kpi = $('input[name="selected_kpi"]:checked').map(function () {
+                return $(this).val();
+            }).get();
+
+            var start_year = $('#start-year').val();
+            var end_year = $('#end-year').val();
+            var selected_date = {
+                'date_column': 'week_starting_sunday',
+                'start': parseInt(start_year),
+                'end': parseInt(end_year)
+            };
+
+            var selected_types = $('.calculation-dropdown:enabled').map(function () {
+                return $(this).val();
+            }).get();
+
+            // Send selected filters to the backend
+            $.ajax({
+                type: 'POST',
+                contentType: 'application/json;charset=UTF-8',
+                url: '/filter-data',
+                data: JSON.stringify({
+                    'filters': selected_filters,
+                    'kpi': selected_kpi,
+                    'date': selected_date,
+                    'type': selected_types
+                }),
+                success: function (data) {
+                    // Display JSON data
+                    var jsonDataHtml = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+                    $('#json-data').html(jsonDataHtml);
+                },
+                error: function (error) {
+                    console.log('Error getting JSON data:', error);
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
+
